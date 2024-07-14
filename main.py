@@ -13,6 +13,7 @@ app = FastAPI()
 async def test():
     return {"message": "Hello World"}
 
+# endpoint to extract ingredients from image
 @app.post("/upload")
 def recommnedation(image: UploadFile= File(...)):
     # extract ingredients from image using amazon textract
