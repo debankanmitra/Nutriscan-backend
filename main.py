@@ -15,8 +15,10 @@ async def test():
 
 @app.post("/upload")
 def recommnedation(image: UploadFile= File(...)):
+    # extract ingredients from image using amazon textract
     ingredients = detect_file_text(image)
     health_history = "Diabetes, Gluten intolerance"
+    # pass ingredients and health_history to the genai LLM
     result = Llm_result(ingredients, health_history)
     return {"response": result}
 
