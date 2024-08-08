@@ -19,7 +19,8 @@ def create_prompt(ingredients, health_history):
     return prompt
 
 def Llm_result(ingredients,health_history):
-    genai.configure(api_key=os.environ.get("GENAI_API_KEY"))
+    
+    genai.configure(api_key=os.getenv('GENAI_API_KEY'))
     model = genai.GenerativeModel('gemini-1.5-flash')
 
     prompt = create_prompt(ingredients, health_history)
